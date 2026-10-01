@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-light text-dark min-h-screen font-sans;
+  }
+
+  /* Hide any error message with the text 'Please upload a file' */
+  div.bg-danger-100.text-danger-600.p-4.rounded-md:first-child {
+    display: none !important;
+  }
+  h1 {
+    @apply text-3xl font-bold mb-4 text-dark;
+  }
+  h2 {
+    @apply text-2xl font-bold mb-3 text-dark;
+  }
+  h3 {
+    @apply text-xl font-bold mb-2 text-dark;
+  }
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
+  p {
+    @apply text-dark/80 leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2.5 rounded-md font-medium transition-all duration-200 shadow-sm text-sm;
+  }
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 hover:shadow-md;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90 hover:shadow-md;
+  }
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent/90 hover:shadow-md;
+  }
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-danger/90 hover:shadow-md;
+  }
+  .btn-light {
+    @apply bg-cream text-dark hover:bg-cream/90 hover:shadow-md;
+  }
+  .btn-outline-primary {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white hover:shadow-md;
+  }
+  .btn-outline-secondary {
+    @apply border border-secondary text-secondary hover:bg-secondary hover:text-white hover:shadow-md;
+  }
+  .card {
+    @apply bg-surface rounded-xl shadow-sm p-6 border border-secondary/20;
+  }
+  .card-primary {
+    @apply bg-primary/5 border-primary/20;
+  }
+  .card-secondary {
+    @apply bg-secondary/5 border-secondary/20;
+  }
+  .card-accent {
+    @apply bg-accent/5 border-accent/20;
+  }
+  .form-input {
+    @apply w-full px-3 py-2.5 border border-secondary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 bg-white text-dark;
+  }
+  .form-label {
+    @apply block text-sm font-medium text-dark mb-1.5;
+  }
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-secondary text-white;
+  }
+  .gradient-accent {
+    @apply bg-gradient-to-r from-primary to-accent text-white;
+  }
+  .gradient-blue {
+    @apply bg-gradient-to-r from-primary to-secondary text-white;
+  }
+  .section-title {
+    @apply text-2xl font-bold text-dark border-b border-border pb-2 mb-6;
+  }
+  .badge {
+    @apply px-2.5 py-1 text-xs font-medium rounded-full;
+  }
+  .badge-primary {
+    @apply bg-primary/10 text-primary;
+  }
+  .badge-secondary {
+    @apply bg-secondary/10 text-secondary;
+  }
+  .badge-accent {
+    @apply bg-accent/10 text-accent;
+  }
+  .badge-info {
+    @apply bg-info/10 text-info;
+  }
+  .badge-success {
+    @apply bg-success/10 text-success;
+  }
+  .badge-warning {
+    @apply bg-warning/10 text-warning;
+  }
+  .badge-danger {
+    @apply bg-danger/10 text-danger;
+  }
+  .bg-pattern {
+    @apply bg-surface bg-opacity-50 bg-[length:20px_20px] bg-[linear-gradient(to_right,#6dcffb_1px,transparent_1px),linear-gradient(to_bottom,#6dcffb_1px,transparent_1px)];
+  }
+  .feature-icon {
+    @apply p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-sm;
+  }
+  .feature-icon-primary {
+    @apply bg-primary/10 text-primary;
+  }
+  .feature-icon-secondary {
+    @apply bg-secondary/10 text-secondary;
+  }
+  .feature-icon-accent {
+    @apply bg-accent/10 text-accent;
+  }
+  .feature-icon-info {
+    @apply bg-info/10 text-info;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .transition-shadow {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .hover\:shadow-md:hover {
+    transform: translateY(-2px);
+  }
+}

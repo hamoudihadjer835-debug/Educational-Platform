@@ -1,0 +1,22 @@
+{
+  "name": "educational-platform",
+  "version": "1.0.0",
+  "description": "Educational Platform for Computer Science students and teachers",
+  "scripts": {
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:all": "npm run install:client && npm run install:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mime-types": "^3.0.1"
+  }
+}
