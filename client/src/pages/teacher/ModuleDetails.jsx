@@ -224,7 +224,7 @@ const ModuleDetails = () => {
                               <li key={fileIndex} className="flex items-center bg-gray-50 p-3 rounded-md border border-gray-200">
                                 <div className="flex items-center justify-between w-full">
                                   <a
-                                    href={file.path.startsWith('/') ? `http://localhost:5000${file.path}` : `http://localhost:5000/${file.path}`}
+                                    href={file.path.startsWith('/') ? `${file.path}` : `/${file.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-[#01427a] hover:text-[#6dcffb] flex items-center cursor-pointer"
@@ -291,7 +291,7 @@ const ModuleDetails = () => {
                         <li key={fileIndex} className="flex items-center bg-gray-50 p-3 rounded-md border border-gray-200">
                           <div className="flex items-center justify-between w-full">
                             <a
-                              href={file.path.startsWith('/') ? `http://localhost:5000${file.path}` : `http://localhost:5000/${file.path}`}
+                              href={file.path.startsWith('/') ? `${file.path}` : `/${file.path}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-[#01427a] hover:text-[#6dcffb] flex items-center cursor-pointer"
@@ -359,7 +359,7 @@ const ModuleDetails = () => {
                               <li key={fileIndex} className="flex items-center bg-gray-50 p-3 rounded-md border border-gray-200">
                                 <div className="flex items-center justify-between w-full">
                                   <a
-                                    href={file.path.startsWith('/') ? `http://localhost:5000${file.path}` : `http://localhost:5000/${file.path}`}
+                                    href={file.path.startsWith('/') ? `${file.path}` : `/${file.path}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-[#01427a] hover:text-[#6dcffb] flex items-center cursor-pointer"

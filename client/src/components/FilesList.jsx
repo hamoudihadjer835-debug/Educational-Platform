@@ -114,7 +114,7 @@ const FilesList = ({ files = [], onDelete, chapterIndex }) => {
               <div className="flex items-center">
                 <span className="mr-2 text-xl">{getFileIcon(file.fileType)}</span>
                 <a
-                  href={file.path.startsWith('http') ? file.path : `http://localhost:5000${file.path}`}
+                  href={file.path.startsWith('http') ? file.path : file.path}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline font-medium"
@@ -127,7 +127,7 @@ const FilesList = ({ files = [], onDelete, chapterIndex }) => {
                     // For local files, handle viewing or downloading
                     if (!file.path.startsWith('http')) {
                       const fileName = file.originalName || getFileName(file);
-                      const baseUrl = `http://localhost:5000${file.path}`;
+                      const baseUrl = file.path;
 
                       console.log(`Opening file: ${fileName} from ${file.path}`);
                       console.log(`File type: ${fileExt}, Viewable: ${isViewable}`);
