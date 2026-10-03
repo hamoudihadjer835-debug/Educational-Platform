@@ -190,7 +190,7 @@ const connectToMongoDB = async (retryCount = 0, maxRetries = 5) => {
 
     return true;
   } catch (err) {
-    console.error(`❌ MongoDB connection attempt ${retryCount + 1} failed:`, err.message);
+    console.error(`MongoDB connection attempt ${retryCount + 1} failed:`, err.name, err.message, err.code);
 
     // If this is a DNS error and we're using srv, try direct connection
     if (err.message.includes('ETIMEOUT') && process.env.MONGODB_URI.includes('mongodb+srv://')) {
