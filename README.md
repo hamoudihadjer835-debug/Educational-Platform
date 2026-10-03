@@ -1,204 +1,351 @@
- # Educational Platform
+<div align="center">
 
-A full-stack educational platform for Computer Science students and teachers.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2563eb,100:7c3aed&height=180&section=header&text=Educational%20Platform&fontSize=42&fontColor=ffffff&animation=fadeIn" alt="Educational Platform banner" />
+
+### A full-stack educational platform for Computer Science students and teachers
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+[Live Demo](#live-application) | [Source Code](https://github.com/hamoudihadjer835-debug/Educational-Platform) | [Documentation](#documentation)
+
+</div>
+
+---
+
+## Table of Contents
+
+- [Academic Context](#academic-context)
+- [Project Overview](#project-overview)
+- [Main Features](#main-features)
+- [Technology Stack](#technology-stack)
+- [Authentication and Security](#authentication-and-security)
+- [Project Structure](#project-structure)
+- [Application Architecture](#application-architecture)
+- [Getting Started](#getting-started)
+- [Production Deployment](#production-deployment)
+- [Live Application](#live-application)
+- [Documentation](#documentation)
+- [Development Notes](#development-notes)
+- [Project Goals](#project-goals)
+- [License](#license)
+
+---
+
+## Academic Context
+
+| | |
+|---|---|
+| **Program** | 2nd Year Computer Science |
+| **Academic Year** | 2024–2025 |
+| **Project** | Educational Platform |
+
+---
 
 ## Project Overview
 
-This platform has 4 user roles:
-- Admin
-- Teacher
-- Student
-- Visitor
+The **Educational Platform** provides a centralized environment for managing educational content and interactions between students, teachers, and administrators.
 
-Only Computer Science students aged between 18 and 60 can sign up. Students enroll in courses depending on their academic year (e.g., 2024–2025).
+The platform supports four user roles:
 
-Admin adds modules and assigns them to teachers. Teachers can then add lessons to the assigned modules. Students can download lessons or view them (video or document).
+| Role | Description |
+|------|-------------|
+| **Administrator** | Manages users, modules, and platform settings |
+| **Teacher** | Manages learning resources in assigned modules |
+| **Student** | Accesses modules and learning materials by academic year |
+| **Visitor** | Browses the public landing page and registers |
+
+Students can access educational modules according to their academic year, while teachers can manage learning resources within modules assigned to them by administrators.
+
+---
+
+## Main Features
+
+### Administrator
+
+- Access the administration dashboard
+- Manage users
+- Approve student and teacher accounts
+- Create educational modules
+- Assign modules to teachers
+- Manage modules and educational resources
+- Manage platform settings
+
+### Teacher
+
+- Register and access the account after approval
+- View modules assigned by an administrator
+- Add educational resources to assigned modules
+- Manage uploaded lessons and files
+- Access the teacher dashboard
+- Manage the profile
+
+### Student
+
+- Register and access the account after approval
+- View available educational modules
+- Access lessons and educational resources
+- View or download supported learning materials
+- Access the student dashboard
+- Manage the profile
+
+> **Student registration is restricted to users who:**
+> - Are between **18 and 60 years old**
+> - Select **Computer Science** as their field of study
+
+### Visitor
+
+- Access the public landing page
+- Learn about the platform
+- Access public information
+- Choose whether to register as a student or teacher
+
+---
 
 ## Technology Stack
 
-### Frontend
-- React (JSX)
-- Tailwind CSS
-- React Router for navigation
-- Axios for API calls
+| Layer | Technologies |
+|-------|--------------|
+| **Frontend** | React, Vite, JSX, Tailwind CSS, React Router, Axios |
+| **Backend** | Node.js, Express.js, MongoDB, Mongoose, JSON Web Token (JWT), bcrypt |
+| **Deployment** | GitHub, Vercel, MongoDB Atlas |
 
-### Backend
-- Node.js + Express
-- MongoDB for database
-- JWT for authentication
-- bcrypt for password security
+---
 
-### Storage
-- Lessons can be PDFs, videos, etc., available for download and streaming
+## Authentication and Security
 
-## Security Features
-- Passwords are hashed using bcrypt
-- Sessions handled with JWT tokens
-- Admin access only via hidden route /admin
-- Role-based route protection
-- Validation to restrict students:
-  - Must be aged 18–60
-  - Must select "Computer Science" as a field of study
+- Password hashing using **bcrypt**
+- **JWT**-based authentication
+- Role-based authorization
+- Protected routes based on user roles
+- Server-side authentication and authorization
+- Validation of student registration requirements
+- Sensitive configuration stored using environment variables
+
+> **Important:** Real database credentials, JWT secrets, API keys, and other sensitive values must **never** be committed to the repository.
+
+---
 
 ## Project Structure
 
-### Frontend Structure
 ```
-/client
-├── /pages
-│   ├── /admin
-│   ├── /teacher
-│   ├── /student
-│   ├── /auth (login/register)
-│   └── /visitor
-├── /components
-├── /services (API calls)
-├── /routes (Protected routes by role)
-├── App.jsx
-└── index.jsx
-```
-
-### Backend Structure
-```
-/server
-├── /models
-│   ├── User.js
-│   ├── Module.js
-│   ├── Lesson.js
-├── /routes
-│   ├── adminRoutes.js
-│   ├── authRoutes.js
-│   ├── teacherRoutes.js
-│   ├── studentRoutes.js
-├── /controllers (Business logic)
-├── /middlewares
-│   ├── authMiddleware.js
-│   ├── roleMiddleware.js
-├── /utils
-│   ├── jwt.js
-│   ├── hash.js
-├── config/db.js
-├── .env
-└── server.js
+Educational-Platform/
+│
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   │   ├── admin/
+│   │   │   ├── auth/
+│   │   │   ├── student/
+│   │   │   ├── teacher/
+│   │   │   └── visitor/
+│   │   ├── services/
+│   │   ├── routes/
+│   │   └── ...
+│   └── package.json
+│
+├── server/
+│   ├── controllers/
+│   ├── middlewares/
+│   ├── models/
+│   ├── routes/
+│   ├── scripts/
+│   ├── utils/
+│   ├── uploads/
+│   ├── config/
+│   ├── server.js
+│   └── package.json
+│
+├── .env.example
+├── .gitignore
+├── package.json
+├── vercel.json
+└── README.md
 ```
 
-## Role-Based Functionality
+---
 
-### Admin
-- Access: /admin (via direct URL)
-- Login Required
-- Pages:
-  - /admin/login — Auth page
-  - /admin/dashboard — View total users, courses, lessons
-  - /admin/add-module — Add module with title, year
-  - /admin/assign-teacher — Assign teacher to a specific module
-  - /admin/manage-users — Block, delete, or modify users
-  - /admin/manage-teachers — Approve teacher and students applications
-  - /admin/manage-courses — View/delete lessons/modules
-  - /admin/settings — Change credentials
+## Application Architecture
 
-### Teacher
-- Register/Login: /register/teacher & /login/teacher
-- Requires approval from admin to access dashboard
-- Pages:
-  - /teacher/dashboard — Overview of assigned modules and lessons
-  - /teacher/add-lesson — Upload videos, PDFs, documents under assigned modules
-  - /teacher/modules — View modules assigned by admin
-  - /teacher/lessons — Manage uploaded lessons (edit/delete)
-  - /teacher/profile — Update personal info
+The application follows a **client-server architecture**:
 
-### Student
-- Register/Login: /register/student & /login/student
-- (Must be aged 18–60, CS students only)
-- Pages:
-  - /student/dashboard — Welcome page and quick stats
-  - /student/courses — View available modules based on academic year
-  - /student/lessons/:moduleId — View and download lesson files
-  - /student/my-courses — View enrolled lessons/modules
-  - /student/profile — Manage personal data, password
+```
+React / Vite Client
+        |
+        | REST API
+        v
+Node.js / Express Server
+        |
+        | Mongoose
+        v
+MongoDB Database
+```
 
-### Visitor
-- No login required
-- Pages:
-  - / — Public landing page
-  - /about — Platform overview
-  - /contact — Get in touch
-  - /choose-role — Register either as Student or Teacher
+The frontend communicates with the Express backend through REST API endpoints.
+
+---
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v16.0.0 or higher)
-- MongoDB (local installation or MongoDB Atlas account)
+
+Make sure the following are installed:
+
+- **Node.js** 16 or higher
+- **npm**
+- **MongoDB** or a **MongoDB Atlas** account
+- **Git**
 
 ### Installation
 
-1. Clone the repository
-```
-git clone <repository-url>
-cd The-Platform
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/hamoudihadjer835-debug/Educational-Platform.git
+cd Educational-Platform
 ```
 
-2. Install all dependencies
-```
-# Install root dependencies
+**2. Install the root dependencies**
+
+```bash
 npm install
+```
 
-# Install client dependencies
+**3. Install the client dependencies**
+
+```bash
 cd client
 npm install
+```
 
-# Install server dependencies
+**4. Install the server dependencies**
+
+```bash
 cd ../server
 npm install
 ```
 
-3. Set up environment variables
-Create a `.env` file in the server directory with the following variables:
-```
-# MongoDB Connection String
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority
-# Or for local MongoDB: MONGODB_URI=mongodb://localhost:27017/educational_platform
+### Environment Configuration
 
-# JWT Configuration
-JWT_SECRET=your_jwt_secret_key_here
+Create a `.env` file inside the `server` directory, using `.env.example` as a reference:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 JWT_EXPIRE=30d
-
-# Server Port (only used in development)
 PORT=5000
 
-# Cloudinary Configuration (if using Cloudinary for file uploads)
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-4. Run the application
-```
-# Start the server (from the root directory)
-npm run dev:server
+> Do not commit the `.env` file or any real credentials to GitHub.
 
-# In a separate terminal, start the client
+### Running the Application
+
+**Start the backend** (from the project root):
+
+```bash
+npm run dev:server
+```
+
+**Start the frontend** (in a separate terminal):
+
+```bash
 npm run dev:client
 ```
 
-### Deployment to Another PC
+The frontend runs on the Vite development server, while the backend runs on port **5000** by default.
 
-For detailed instructions on deploying this project to another PC, please refer to the [Deployment Guide](DEPLOYMENT_GUIDE.md) included in this repository.
+### Building the Frontend
 
-### Troubleshooting
+```bash
+npm run build --prefix ./client
+```
 
-If you encounter MongoDB connection issues when deploying to a new PC, please refer to:
+The generated files are placed in `client/dist/`.
 
-1. **MongoDB Troubleshooting Guide**: See [MONGODB_TROUBLESHOOTING.md](MONGODB_TROUBLESHOOTING.md) for detailed solutions to common MongoDB connection issues.
+---
 
-2. **Connection Test Script**: Run the MongoDB connection test script to diagnose issues:
-   ```bash
-   cd server
-   node testConnection.js
-   ```
+## Production Deployment
 
-These resources will help you resolve common deployment issues, particularly related to database connectivity across different environments.
+The project is configured for deployment using **Vercel**. The deployment configuration supports:
+
+- React/Vite frontend
+- Express backend
+- API routing
+- Frontend-to-backend communication
+
+Production environment variables must be configured through the **Vercel project settings**.
+
+---
+
+## Live Application
+
+- **Deployed application:** [Open the deployed application](https://your-deployed-app-url.vercel.app)
+- **GitHub repository:** [View the source code](https://github.com/hamoudihadjer835-debug/Educational-Platform)
+
+---
+
+## Documentation
+
+Additional documentation is available in the repository:
+
+| File | Description |
+|------|-------------|
+| `DEPLOYMENT_GUIDE.md` | Deployment instructions |
+| `MONGODB_CONNECTION_GUIDE.md` | MongoDB connection configuration |
+| `MONGODB_TROUBLESHOOTING.md` | Troubleshooting common MongoDB connection issues |
+| `FILE_UPLOAD_README.md` | Information related to file uploads |
+| `CROSS_PC_DEPLOYMENT.md` | Running the project on another computer |
+
+---
+
+## Development Notes
+
+The project is organized into separate frontend and backend applications.
+
+| Frontend responsibilities | Backend responsibilities |
+|---|---|
+| User interfaces | Authentication |
+| Navigation | Authorization |
+| Authentication views | User management |
+| Dashboards | Module management |
+| Educational content presentation | Educational resources |
+| | Database communication |
+| | API endpoints |
+
+---
+
+## Project Goals
+
+- Provide a centralized educational platform
+- Organize educational content by academic year and module
+- Separate access according to user roles
+- Allow teachers to manage educational resources
+- Provide students with organized access to learning materials
+- Provide administrators with centralized platform management
+- Apply authentication and security principles in a full-stack web application
+
+This project was developed as part of the **2nd Year Computer Science** program during the **2024–2025** academic year. It demonstrates the implementation of a complete web application using modern frontend, backend, database, authentication, and deployment technologies.
+
+---
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the **MIT License**.
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,100:2563eb&height=100&section=footer" alt="footer" />
+
+</div>
