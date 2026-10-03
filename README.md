@@ -275,7 +275,7 @@ Production environment variables must be configured through the **Vercel project
 
 ## Live Application
 
-- **Deployed application:** [Open the deployed application](https://your-deployed-app-url.vercel.app)
+- **Deployed application:** [Open the deployed application](https://the-platform-gules.vercel.app/)
 - **GitHub repository:** [View the source code](https://github.com/hamoudihadjer835-debug/Educational-Platform)
 
 ---
