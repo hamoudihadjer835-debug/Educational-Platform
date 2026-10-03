@@ -243,7 +243,7 @@ const connectToMongoDB = async (retryCount = 0, maxRetries = 5) => {
 };
 
 // Start connection process - this must succeed for the server to start
-connectToMongoDB().catch(err => {
+global.dbConnectionPromise = connectToMongoDB().catch(err => {
   console.error('Fatal database connection error:', err);
   process.exit(1);
 });
